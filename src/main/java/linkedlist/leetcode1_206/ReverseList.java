@@ -13,7 +13,7 @@ public class ReverseList {
         node2.next = node3;
         node3.next = null;
 
-        ListNode listNode = reverseList(node1);
+        ListNode listNode = reverse(node1);
     }
 
     public static ListNode reverseList(ListNode head) {
@@ -42,6 +42,8 @@ public class ReverseList {
 
     /**
      * 第二次写
+     * 时间复杂度O(N)
+     * 空间复杂度O(1)
      *
      * @param head
      * @return
@@ -58,6 +60,29 @@ public class ReverseList {
             cur = next;
         }
         return pre;
+    }
+
+
+    //第二种，以递归的方式进行反转
+
+    /**
+     * 我们之所以选择顺序遍历，然后反转链表是是因为我们无法像数组一样直接找到链表的最后一个元素
+     * 但是递归可以帮我们把链表压入栈中，出栈的时候就是天然的最后一个元素，并且随着栈帧的弹出，将指针指向下一个弹出的元素即可
+     * 返回第一个弹出的元素。
+     * @param head
+     * @return
+     */
+    public static ListNode reverse(ListNode head) {
+        // if (head == null) 说明链表为 null
+        // if (head.next == null) 说明此时的 head 节点为最后一个节点
+        if (head == null || head.next == null) return head;
+        // 遍历
+        ListNode last = reverse (head.next);
+        // 后序
+        head.next.next = head;
+        head.next = null;
+        // 注意：永远返回的是最底层递归的结果。递归中途，返回值是没有改变的
+        return last;
     }
 
 }

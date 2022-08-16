@@ -22,58 +22,83 @@ public class ReverseBetween {
         node4.next = node5;
         node5.next = null;
 
-        ListNode node = reverseBetween(node1, 2, 4);
+        //[1,2,3]  1,2
+
+//        ListNode node1 = new ListNode(3);
+//        ListNode node2 = new ListNode(5);
+//        node1.next = node2;
+
+        ListNode node = reverseBetween(node1, 1, 2);
     }
 
     public static ListNode reverseBetween(ListNode head, int left, int right) {
-
+        //1.参数校验
         if (head == null) {
             return head;
         }
         if (right - left <= 0) {
             return head;
         }
-
-        // 找到startNode和endNode
+        //2.找到要反转链表的位置
+        //找到startNode和endNode   一开始没有考虑到反转链表的边界
+        //startNode 为要反转链表的前一个节点
+        //endNode 为要反转链表的后一个节点
         ListNode cur = head;
         int count = 1;
         ListNode startNode = null;
         ListNode endNode = null;
         while (cur != null) {
             if (count == left - 1) {
-                startNode = cur;  // node 2
+                startNode = cur;  // node 1
             }
-            if (count == right) {
-                endNode = cur.next; //node 5
+            if (count == right + 1) {
+                endNode = cur; //node 5
             }
             count++;
             cur = cur.next;
         }
 
-        //截取指定范围内的链表   截断链表之后应该是三条链表
+        //3.截取指定范围内的链表
         ListNode listNode = subListNode(head, left, right);
-        //反转子链表
+        //4.反转子链表
         ListNode node = reverseList(listNode);
 
-
-        //把截断的链表拼接起来
-        startNode.next = node;
-        while (node != null) {
-            if (node.next == null) {
-                node.next = endNode;
-                break;
-            }
-            node = node.next;
+        //5.把截断的链表拼接起来
+        if (startNode == null && endNode == null) {
+            return node;
         }
-        return head;
+        if (startNode != null && endNode != null) {
+            startNode.next = node;
+            while (node != null) {
+                if (node.next == null) {
+                    node.next = endNode;
+                    break;
+                }
+                node = node.next;
+            }
+            return head;
+        }
+        if (startNode != null) {
+            startNode.next = node;
+            return head;
+        } else {
+            ListNode cur2 = node;
+            while (cur2 != null) {
+                if (cur2.next == null) {
+                    cur2.next = endNode;
+                    return node;
+                }
+                cur2 = cur2.next;
+            }
+            return node;
+        }
     }
 
     private static ListNode subListNode(ListNode head, int left, int right) {
-        int count = 0;
+        int count = 1;
         ListNode cur = head;
         ListNode startNode = null;
         while (cur != null) {
-            count++;
             if (count == left) {
                 startNode = cur;
             }
@@ -82,6 +107,7 @@ public class ReverseBetween {
                 return startNode;
             }
             cur = cur.next;
+            count++;
         }
         return startNode;
 
