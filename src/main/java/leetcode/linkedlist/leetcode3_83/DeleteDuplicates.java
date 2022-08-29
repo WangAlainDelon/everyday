@@ -1,5 +1,7 @@
 package leetcode.linkedlist.leetcode3_83;
 
+import leetcode.linkedlist.common.ListNode;
+
 public class DeleteDuplicates {
 
     /**

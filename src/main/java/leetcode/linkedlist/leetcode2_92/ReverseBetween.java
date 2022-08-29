@@ -1,8 +1,10 @@
 package leetcode.linkedlist.leetcode2_92;
 
+import leetcode.linkedlist.common.ListNode;
+
 public class ReverseBetween {
 
-    //反转指定区间的链表
+    //  反转指定区间的链表
     // 汲取上一道题目的教训，处理好边界问题
 
     //我的思路是可以利用好第一个题目，把需要反转的链表找出来，然后让第一个题目将他反转好了之后再组装
