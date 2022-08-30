@@ -10,9 +10,14 @@ public class CommonUtils {
         }
         ListNode node = new ListNode(0);
         ListNode re = node;
+//        for (int i = 0; i < array.length; i++) {
+//            ListNode listNode = new ListNode(array[i]);
+//            node.next = listNode;
+//        }
         for (int i : array) {
-            ListNode listNode = new ListNode(array[i]);
+            ListNode listNode = new ListNode(i);
             node.next = listNode;
+            node = node.next;
         }
         return re.next;
 
