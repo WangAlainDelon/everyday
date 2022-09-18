@@ -1,7 +1,6 @@
 package leetcode.linkedlist.leetcode10_147;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-import leetcode.linkedlist.CommonUtils;
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 public class InsertionSortList {

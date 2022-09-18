@@ -1,6 +1,6 @@
 package leetcode.linkedlist.leetcode4_86;
 
-import leetcode.linkedlist.CommonUtils;
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 public class PartitionList {

@@ -1,6 +1,6 @@
 package leetcode.linkedlist.leetcode6_2;
 
-import leetcode.linkedlist.CommonUtils;
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 /**

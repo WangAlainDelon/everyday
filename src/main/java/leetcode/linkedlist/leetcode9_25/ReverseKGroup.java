@@ -1,6 +1,6 @@
 package leetcode.linkedlist.leetcode9_25;
 
-import leetcode.linkedlist.CommonUtils;
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 public class ReverseKGroup {
