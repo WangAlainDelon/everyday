@@ -1,5 +1,6 @@
 package leetcode.linkedlist.leetcode14_61;
 
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 public class RotateRight {
@@ -12,6 +13,9 @@ public class RotateRight {
      */
     public static void main(String[] args) {
 
+        int[] ints = {0, 1, 2};
+        ListNode listNode = CommonUtils.getListNode(ints);
+        ListNode listNode1 = rotateRight(listNode, 0);
 
 
     }
@@ -26,8 +30,8 @@ public class RotateRight {
      * @param k
      * @return
      */
-    public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
+    public static ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k <= 0) {
             return head;
         }
         //1.遍历链表 把链表圈成环  找到元素的个数n
@@ -37,25 +41,25 @@ public class RotateRight {
             head = head.next;
             n++;
         }
-        head.next = originHead;
 
-        // 如果n%k 为右移的个数
+        // n%k 为右移的个数
         int newK = 0;
-        if (n > k) {
-            newK = n % k;
+        if (n >= k) {
+            newK = k;
         } else {
-            newK = k % n;
+            newK = k % n; //一开始大于k>n的情况考虑不周全
         }
-        // 新头节点的位置
-        int newHeadState = n - newK;
+        head.next = originHead;
+        // 新头节点的位置 第newHeadState个元素就是新的头节点
+        int newHeadState = n - newK + 1;
 
-        while (newHeadState > 0) {
+        while (newHeadState > 1) {     //第一次没有注意到这里是要>1  一开始写的>0
             originHead = originHead.next;
             newHeadState--;
         }
         //从头开始找到尾部 解开尾部
         ListNode re = originHead;
-        while (n > 0) {
+        while (n > 1) {  //第一次没有注意到这里是要>1  一开始写的>0
             originHead = originHead.next;
             n--;
         }
