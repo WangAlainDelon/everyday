@@ -1,5 +1,6 @@
-package leetcode.linkedlist.leetcode15_143;
+package leetcode.linkedlist.leetcode16_143;
 
+import leetcode.linkedlist.common.CommonUtils;
 import leetcode.linkedlist.common.ListNode;
 
 public class ReorderList {
@@ -13,10 +14,9 @@ public class ReorderList {
      */
 
     public static void main(String[] args) {
-
-        ListNode node1 = new ListNode(0);
-        ListNode node2 = node1;
-        System.out.println(node1 == node2);
+        int[] ints = {1, 2, 3, 4};
+        ListNode listNode = CommonUtils.getListNode(ints);
+        ListNode listNode1 = reorderList(listNode);
     }
 
     //双指针的思路吧
@@ -45,16 +45,14 @@ public class ReorderList {
             flag = true;
             end++;
         }
-        ListNode secondNode = null;
+        ListNode secondNode = origin;
         for (int i = 0; i < end; i++) {  //考虑奇数 偶数
             if (flag && i == (end - 1)) {
                 ListNode mid = cur.next;
                 secondNode.next = mid;
                 mid.next = null;
-            } else {
                 break;
             }
-
             ListNode firstNode = cur;
             // 计算firstNode
             while (i > 0) {
@@ -63,18 +61,27 @@ public class ReorderList {
             }
             // 计算secondNode
             int secondN = n - i;
-            while (secondN > 0) {
+            while (secondN > 1) {
                 secondNode = secondNode.next;
+                secondN--;
             }
             //两两组合
             if (!flag && i == (end - 1)) {
                 secondNode.next = null;
             }
             firstNode.next = secondNode;
-            cur = cur.next;
+            cur = cur.next;   // 我的第一种方法 走到这里来就行不通了，因为前面使用firstNode.next = secondNode 把链表的指向已经改了  这里取下一个元素娶不到了
         }
-
         return re;
-
     }
+
+    //题解1 采用线性表来装链表的节点，这样可以通过下标访问到链表的节点，然后就好办了
+
+    //题解2： 寻找链表中点 + 链表逆序 + 合并链表
+    // 参考「876. 链表的中间结点」）。我们可以使用快慢指针来 O(N)O(N) 地找到链表的中间节点。
+    // 然后将右半边链表反转， 然后合并两个链表  合并是左1->右1->左2->右2....->中间节点
+
+
+
+
 }

@@ -1,5 +1,6 @@
 package everyday1;
 
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,5 +18,11 @@ public class RemoveString {
         Matcher m = p.matcher(msg);
         String s = m.replaceAll("");
 
+        Test test = Optional.ofNullable(getTest()).orElseGet(Test::new);
+
+    }
+
+    static Test getTest() {
+        return null;
     }
 }
