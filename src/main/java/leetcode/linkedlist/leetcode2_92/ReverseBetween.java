@@ -28,7 +28,7 @@ public class ReverseBetween {
 //        ListNode node2 = new ListNode(5);
 //        node1.next = node2;
 
-        ListNode node = reverseBetween(node1, 1, 2);
+        ListNode node = reverseBetween2(node1, 2, 4);
     }
 
     public static ListNode reverseBetween(ListNode head, int left, int right) {
@@ -127,5 +127,63 @@ public class ReverseBetween {
             cur = next;
         }
         return pre;
+    }
+
+
+    //第一次写得太复杂了吧  这个题目重新写
+    public static ListNode reverseBetween2(ListNode head, int left, int right) {
+        //穿针引线，一次遍历
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //反转链表的前一个节点
+        ListNode pre = head;
+        while (left > 2) {
+            pre = pre.next;
+            left--;
+        }
+        ListNode cur = pre.next;
+        ListNode next = null;
+        while (right > 1) {
+//            ListNode next = cur.next;
+//            //1.
+//            cur.next = next.next;
+//            //2.
+//            pre.next = next;
+//            //3.
+//            next.next = cur;
+
+            next = cur.next;
+            cur.next = next.next;
+            next.next = pre.next;
+            pre.next = next;
+
+            right--;
+        }
+        return head;
+    }
+
+
+    public static ListNode reverseBetween3(ListNode head, int left, int right) {
+        //穿针引线，一次遍历
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //反转链表的前一个节点
+        ListNode pre = head;
+
+        //反转链表的后一个节点
+        ListNode next = head;
+        while (left > 2) {
+            pre = pre.next;
+            left--;
+        }
+
+//        while (right > 0) {
+//            next = next.next;
+//            right--;
+//        }
+        // TODO: 2022/9/22
+        return null;
     }
 }
