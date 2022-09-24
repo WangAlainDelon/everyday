@@ -14,7 +14,7 @@ public class ReorderList {
      */
 
     public static void main(String[] args) {
-        int[] ints = {1, 2, 3, 4};
+        int[] ints = {1, 2, 3};
         ListNode listNode = CommonUtils.getListNode(ints);
         ListNode listNode1 = reorderList(listNode);
     }
@@ -69,8 +69,9 @@ public class ReorderList {
             if (!flag && i == (end - 1)) {
                 secondNode.next = null;
             }
+            ListNode next = firstNode.next;
             firstNode.next = secondNode;
-            cur = cur.next;   // 我的第一种方法 走到这里来就行不通了，因为前面使用firstNode.next = secondNode 把链表的指向已经改了  这里取下一个元素娶不到了
+            cur = next;   // 我的第一种方法 走到这里来就行不通了，因为前面使用firstNode.next = secondNode 把链表的指向已经改了  这里取下一个元素娶不到了
         }
         return re;
     }
@@ -82,6 +83,62 @@ public class ReorderList {
     // 然后将右半边链表反转， 然后合并两个链表  合并是左1->右1->左2->右2....->中间节点
 
 
+    public static ListNode reorderList2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode re = head;
+        ListNode midNode = getMidNode(head);
+
+
+        //反转第二个链表
+        ListNode reverseList = getReverse(midNode);
+        while (reverseList != null) {
+            ListNode nextL = head.next;
+            ListNode nextR = reverseList.next;
+            head.next = reverseList;
+            reverseList.next = nextL;
+            head = nextL;
+            reverseList = nextR;
+        }
+        if (head != null) {
+            head.next = null;
+        }
+
+
+        return re;
+    }
+
+    private static ListNode getReverse(ListNode midNode) {
+        ListNode pre = null;
+        ListNode cur = midNode;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+
+    private static ListNode getMidNode(ListNode head) {
+        //快慢指针法获取中间的节点
+        ListNode firstNode = head;
+        ListNode secondNode = head;
+
+        int n = 0;
+        while (firstNode != null) {
+            firstNode = firstNode.next;
+            n++;
+        }
+        int mid = n / 2;
+        while (mid > 0) {
+            secondNode = secondNode.next;
+            mid--;
+        }
+        return secondNode;
+    }
 
 
 }
