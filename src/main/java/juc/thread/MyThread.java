@@ -1,8 +1,8 @@
-package thread;
+package juc.thread;
 
 import java.util.Date;
 
-public class Thread {
+public class MyThread {
 
     public static void main(String[] args) {
         new java.lang.Thread(() -> {
