@@ -11,6 +11,21 @@ import java.util.stream.Collectors;
 public class Test1 {
 
     public static void main(String[] args) {
+
+        AppCenterJarSourceEnum market = AppCenterJarSourceEnum.valueOf("MARKET");
+
+        switch (market) {
+            case MARKET:
+                System.out.println("1");
+                break;
+            case HZERO:
+                System.out.println("2");
+                break;
+            default:
+                break;
+        }
+
+
         // == 与equals
         User user1 = new User();
         User user2 = new User();
