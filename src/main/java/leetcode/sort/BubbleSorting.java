@@ -7,6 +7,7 @@ public class BubbleSorting {
 
     public static void main(String[] args) {
 
+        //n个元素进行冒泡排序最多n-1趟
 
         //循环了多少次
         int a = 0;
@@ -15,7 +16,7 @@ public class BubbleSorting {
         int[] nums = {2, 0, 2, 1, 1, 0};
 
 
-        bubbleSorting(nums);
+//        bubbleSorting(nums);
 
         for (int i = 0; i < nums.length - 1; i++) {
             a++;

@@ -8,7 +8,7 @@ public class Test {
 
 
         StringBuilder sb = new StringBuilder();
-        String s1 = maxDictionaryOrder(s, sb);
+        String s1 = maxDictionaryOrder(s);
     }
 
 
@@ -40,7 +40,6 @@ public class Test {
 
     //求出给定字符串的子序列，按照字典顺序最大的是哪一个？
     public static String maxDictionaryOrder(String s) {
-        StringBuilder sb = new StringBuilder();
         //用递归的方法每次从剩余的字串中找到最大的字符
         if (s == null || s.equals("")) {
             return "";
@@ -54,10 +53,12 @@ public class Test {
         int maxIndex = s.indexOf(max);
         int endMaxIndex = s.lastIndexOf(max);
         //从剩余的字串中找到最大的字母
+        StringBuilder sb = new StringBuilder();  //递归函数中，这个每次都新建了
+
         String s1 = maxDictionaryOrder(s.substring(endMaxIndex + 1));
         for (int i = maxIndex; i <= s.length() - 1; i++) {
             if (s.charAt(i) == max) {
-                sb.append(max);
+                sb.insert(0, max);
             }
         }
         return sb.toString();
