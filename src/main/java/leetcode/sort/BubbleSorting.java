@@ -4,6 +4,8 @@ package leetcode.sort;
  * Created by wangxiang on 2022/1/18
  */
 public class BubbleSorting {
+    static {}
+    static {}
 
     public static void main(String[] args) {
 
