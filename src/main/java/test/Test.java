@@ -4,11 +4,15 @@ public class Test {
 
 
     public static void main(String[] args) {
-        String s = "aabcbccacbbcbaaba";
+        String issue = "tony-5";
+        int i = issue.lastIndexOf("-");
+        String substring = issue.substring(i+1);
 
-
-        StringBuilder sb = new StringBuilder();
-        String s1 = maxDictionaryOrder(s);
+        int a = 2;
+        int b = a++;
+        System.out.println(a);
+        System.out.println(b);
+        // https://zhuanlan.zhihu.com/p/103446936
     }
 
 

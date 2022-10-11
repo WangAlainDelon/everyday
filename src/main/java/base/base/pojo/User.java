@@ -1,10 +1,20 @@
 package base.base.pojo;
 
+import java.util.Date;
+
 public class User {
 
     private Long id;
     private String name;
+    private Date birthday;
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
     public Long getId() {
         return id;

@@ -5,6 +5,12 @@ public class MaxDictionaryOrder {
     public static void main(String[] args) {
 
         maxDictionaryOrder2("aabcbccacbbcbaaba");
+        //接口成员变量的默认修饰符
+        //责任矩阵
+        //页面背景颜色由哪个属性设置
+        //ES的索引相当于MySQL的什么
+        //
+
 
     }
 
