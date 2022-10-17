@@ -3,6 +3,9 @@ package base.base.pojo;
 import java.util.Date;
 
 public class User {
+    public  User(Long id) {
+        this.id = id;
+    }
 
     private Long id;
     private String name;
