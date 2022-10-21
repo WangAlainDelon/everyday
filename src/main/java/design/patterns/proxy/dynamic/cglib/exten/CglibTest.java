@@ -8,12 +8,9 @@ import net.sf.cglib.proxy.Enhancer;
 public class CglibTest {
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(Subject.class);
+        enhancer.setSuperclass(RealSubject.class);
         enhancer.setCallback(new DynamicCGLibHandler());
         Subject subject = (Subject) enhancer.create();
         subject.doSomething("ss");
-
-
-
     }
 }
