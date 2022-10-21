@@ -3,8 +3,11 @@ package base.base.pojo;
 import java.util.Date;
 
 public class User {
-    public  User(Long id) {
+    public User(Long id) {
         this.id = id;
+    }
+
+    public User() {
     }
 
     private Long id;
