@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Date;
+
 public class Test {
 
 
@@ -79,3 +81,15 @@ public class Test {
         return sb.toString();
     }
 }
+
+class SuperTest extends Date {
+    private static final long serialVersionUID = 1L;
+    private void test(){
+        System.out.println(super.getClass().getName());
+    }
+
+    public static void main(String[]args){
+        new SuperTest().test();
+    }
+}
+
