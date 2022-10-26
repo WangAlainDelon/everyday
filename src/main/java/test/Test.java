@@ -89,6 +89,7 @@ class SuperTest extends Date {
     }
 
     public static void main(String[]args){
+
         new SuperTest().test();
     }
 }
