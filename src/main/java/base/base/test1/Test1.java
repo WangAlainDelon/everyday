@@ -13,12 +13,23 @@ import java.util.stream.Collectors;
 
 public class Test1 {
 
+
     public static void main(String[] args) throws ParseException {
+        String s1 = Boolean.TRUE.toString();
+        byte[] bytes = new byte[1048576];
+        BitSet bitSet = new BitSet(122);
+        bitSet.set(811111111);
+
+        Boolean a = true;
+        String s = a.toString();
+
+        Map<String, String> stringMap = new HashMap<>();
+        String put1 = stringMap.put("1", "6");
+        String put = stringMap.put("1", "7");
 
 
         String formatTime = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) (20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9]$";
         String formatTime2 = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) (20|21|22|23|[0-1][0-9]):[0-5][0-9]$";
-
 
 
         String date = "2022-10-25 14:40";
