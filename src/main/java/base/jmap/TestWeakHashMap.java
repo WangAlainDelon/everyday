@@ -3,6 +3,8 @@ package base.jmap;
 import base.base.pojo.User;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.WeakHashMap;
 
 public class TestWeakHashMap {
@@ -19,6 +21,11 @@ public class TestWeakHashMap {
 
         //实际应用： 可以基于WeakHashMap 实现一个线程安全的基于LRU本地缓存
         // 我们的网关就有本地的缓存
+
+
+        Map<String, String> linkHashMap = new LinkedHashMap<>(1);
+        linkHashMap.put("1", "1");
+        linkHashMap.put("2", "2");
 
 
         //1.WeakHashMap的使用  实现就是WeakReference为null的时候，就会被计入回收队列，GC的时候就会回收掉。

@@ -1,5 +1,6 @@
 package base.jmap;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -26,15 +27,26 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
 
+    /**
+     * 是不是移出最老的元素，最老的就是头节点的元素， 那是不是通过LinkedHashMap实现LRU有问题呢？如果我队首的元素经常被访问，那么这个链表满了以后还是会将它最热的数据移除哦。
+     * 这不能做到缓存中最近访问最少的对象删除掉
+     */
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return super.size() > this.size;
     }
 
     public static void main(String[] args) {
+
+
+
         LRUCache<String, String> lruCache = new LRUCache<>(1);
         lruCache.put("1","1");
         lruCache.put("1","2");
+        //如果要实现线程安全的缓存呢？  这种做法是在每个方法上都加了锁。
+        Map<String, String> stringMap = Collections.synchronizedMap(lruCache);
+
+        // 能不能用CAS无锁编程来实现？？
 
 
 
