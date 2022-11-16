@@ -10,7 +10,7 @@ public class ClimbStairs {
 
     }
 
-    // 3=1+1+1  3=2+1
+    // 3=1+1+1  3=2+1 3=2+1
     public int climbStairs(int n) {
         if (n == 0) {
             return 0;
