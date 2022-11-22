@@ -1,12 +1,25 @@
 package test;
 
+import java.util.Date;
+
 public class Test {
 
 
     public static void main(String[] args) {
+        int j = 0;
+        loop:
+        do {
+            System.out.println("j is " + j++);
+            if (j == 3) {
+                continue loop;
+            }
+        } while (j < 10);
+
+
+
         String issue = "tony-5";
         int i = issue.lastIndexOf("-");
-        String substring = issue.substring(i+1);
+        String substring = issue.substring(i + 1);
 
         int a = 2;
         int b = a++;
@@ -68,3 +81,16 @@ public class Test {
         return sb.toString();
     }
 }
+
+class SuperTest extends Date {
+    private static final long serialVersionUID = 1L;
+    private void test(){
+        System.out.println(super.getClass().getName());
+    }
+
+    public static void main(String[]args){
+
+        new SuperTest().test();
+    }
+}
+
