@@ -15,8 +15,7 @@ public class Test {
 
 
         ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
-        threadLocalRandom.nextInt(5);
-
+        int i1 = threadLocalRandom.nextInt(10000,99999);
 
 
     }
