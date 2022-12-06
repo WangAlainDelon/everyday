@@ -18,7 +18,7 @@ public class Test {
         ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
         int i1 = threadLocalRandom.nextInt(10000,99999);
 
-        int i = threadLocalRandom.nextInt(10000, 99999);
+        int i3 = threadLocalRandom.nextInt(10000, 99999);
         System.out.println(i);
 
     }
