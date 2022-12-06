@@ -2,7 +2,7 @@ package design.patterns.proxy.dynamic.cglib.inter;
 
 public class Test {
     public static void main(String[] args) {
-        //        有money人张三
+        //有money人张三
         ISomeService zhangsan = new ISomeServiceImp();
         //屌丝李四
         ISomeService lisi = new ISomeServiceImp();

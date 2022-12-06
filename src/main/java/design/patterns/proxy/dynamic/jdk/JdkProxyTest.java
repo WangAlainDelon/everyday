@@ -2,9 +2,10 @@ package design.patterns.proxy.dynamic.jdk;
 
 public class JdkProxyTest {
 
+    // JDK动态代理原理：
+
     public static void main(String[] args) {
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", true);
-
         //定义一个主题
         Subject subject = new RealSubject();
         //定义一个Handler
