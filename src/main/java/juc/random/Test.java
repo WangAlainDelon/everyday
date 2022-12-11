@@ -10,7 +10,15 @@ public class Test {
     private final static ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
 
     public static void main(String[] args) {
-        int i = threadLocalRandom.nextInt(10000, 99999);
+        Random random = new Random();
+        int i = random.nextInt(5);
+
+
+
+        ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
+        int i1 = threadLocalRandom.nextInt(10000,99999);
+
+        int i3 = threadLocalRandom.nextInt(10000, 99999);
         System.out.println(i);
 
     }
