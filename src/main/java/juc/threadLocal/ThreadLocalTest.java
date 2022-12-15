@@ -18,5 +18,7 @@ public class ThreadLocalTest {
 
     public static void main(String[] args) {
 
+        Tools.threadLocal.set("hh");
+
     }
 }
