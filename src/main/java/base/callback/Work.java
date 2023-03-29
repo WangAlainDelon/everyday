@@ -7,13 +7,21 @@ public class Work {
         myFetcher.fetchData(new FetcherCallback() {
             @Override
             public void onData(Data data) throws Exception {
-                System.out.println("业务正常的回调");
+                test(data);
             }
 
             @Override
             public void onError(Throwable throwable) {
-                System.out.println("业务不正常的回调");
+                System.out.println("业务不正常的回调" + throwable.getMessage());
             }
         });
+    }
+
+    private void test(Data data) {
+        try {
+            int i = 1 / 0;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
