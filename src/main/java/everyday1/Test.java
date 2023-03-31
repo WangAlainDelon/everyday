@@ -20,6 +20,7 @@ public class Test {
     }
 
     public void test() {
+
         try {
             recursiveCalls("a");
         } catch (Exception e) {
