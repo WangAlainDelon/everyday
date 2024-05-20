@@ -2,7 +2,7 @@ package base.base.pojo;
 
 import java.util.Date;
 
-public class User {
+public class User im{
     public User(Long id) {
         this.id = id;
     }
@@ -13,6 +13,7 @@ public class User {
     private Long id;
     private String name;
     private Date birthday;
+    private User user;
 
     public Date getBirthday() {
         return birthday;
@@ -36,5 +37,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

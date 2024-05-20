@@ -36,5 +36,10 @@
       <option name="name" value="yqcloud-snapshot" />
       <option name="url" value="http://nexus.saas.hand-china.com/repository/yqcloud-snapshot/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="YQCloudGroup" />
+      <option name="name" value="YQCloudGroup" />
+      <option name="url" value="http://nexus.saas.hand-china.com/repository/yqcloud-group" />
+    </remote-repository>
   </component>
 </project>

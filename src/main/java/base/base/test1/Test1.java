@@ -2,6 +2,7 @@ package base.base.test1;
 
 import base.base.pojo.User;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
@@ -16,6 +17,11 @@ public class Test1 {
 
     public static void main(String[] args) throws ParseException {
 
+        User user=new User();
+        user.setId(null);
+        Long id = getId(user);
+
+        BigDecimal
 
 
         String s1 = Boolean.TRUE.toString();
@@ -89,5 +95,9 @@ public class Test1 {
 //        System.out.println(user1.equals(user2));
 //        ConcurrentHashMap
 
+    }
+
+    private static Long getId(User user) {
+        return user != null ? 0L : Optional.ofNullable(user.getId()).orElse(0L);
     }
 }
