@@ -32,6 +32,11 @@
       <option name="url" value="http://nexus.saas.hand-china.com/repository/yqcloud-release/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="choerodon-snapshot" />
+      <option name="name" value="choerodon-snapshot" />
+      <option name="url" value="https://nexus.choerodon.com.cn/repository/choerodon-snapshot/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
